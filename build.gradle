@@ -45,6 +45,7 @@ minecraft {
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
 
+
             // Recommended logging level for the console
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
@@ -67,6 +68,11 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
+            properties 'mixin.env.remapRefMap': 'true'
+            property 'mixin.env.refMapRemappingFile', "${project.projectDir}/build/createSrgToMcp/output.srg"
+
+            arg "-mixin.config=" + "spells_gone_wrong.mixins.json"
+
             property 'forge.enabledGameTestNamespaces', 'examplemod'
 
             mods {
@@ -86,6 +92,7 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
+
             property 'forge.enabledGameTestNamespaces', 'examplemod'
 
             mods {
@@ -101,6 +108,7 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
+
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
@@ -193,4 +201,12 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+mixin {
+    // MixinGradle Settings
+    add sourceSets.main, 'spells_gone_wrong.refmap.json'
+    config 'spells_gone_wrong.mixins.json'
+
+    debug.verbose = true
+    debug.export = true
 }

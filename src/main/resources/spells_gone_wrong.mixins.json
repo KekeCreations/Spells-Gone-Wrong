@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kekecreations.spells_gone_wrong.core.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "configurable_falls.refmap.json",
+  "mixins" : [
+    "SpellsGoneWrongBlackHoleMixin"
+  ],
+  "client": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
