@@ -1,5 +1,6 @@
 package com.kekecreations.spells_gone_wrong;
 
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
@@ -13,7 +14,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -37,6 +40,8 @@ public class SpellsGoneWrong
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SpellsGoneWrongCommonConfigs.SPEC, "spells_gone_wrong-common.toml");
 
 
         MinecraftForge.EVENT_BUS.register(this);
