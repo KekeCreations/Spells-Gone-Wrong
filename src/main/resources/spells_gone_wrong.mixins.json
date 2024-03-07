@@ -4,11 +4,11 @@
   "package": "com.kekecreations.spells_gone_wrong.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "configurable_falls.refmap.json",
-  "mixins" : [
-    "SpellsGoneWrongBlackHoleMixin"
+  "mixins": [
+    "SpellsGoneWrongBlackHoleMixin",
+    "SpellsGoneWrongIceBlockProjectileMixin"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1

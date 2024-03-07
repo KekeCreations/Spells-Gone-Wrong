@@ -25,10 +25,10 @@ public class SpellsGoneWrongBlackHoleMixin {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/black_hole/BlackHole.getRadius ()F"))
     public void tick(CallbackInfo ci) {
         BlackHole blackHole = BlackHole.class.cast(this);
-        if (!(blackHole.getOwner() instanceof BlackHole) && SpellsGoneWrongCommonConfigs.BLACK_HOLE_CAN_HURT_OWNER.get()) {
+        if (!(blackHole.getOwner() instanceof BlackHole) && SpellsGoneWrongCommonConfigs.BLACK_HOLE_SPELL_CAN_HURT_OWNER.get()) {
             blackHole.setOwner(blackHole);
         }
-        if (blackHole.tickCount > 500 && blackHole.tickCount < 610 && SpellsGoneWrongCommonConfigs.BLACK_HOLE_CAN_CAUSE_EXPLOSIONS.get()) {
+        if (blackHole.tickCount > 500 && blackHole.tickCount < 610 && SpellsGoneWrongCommonConfigs.BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS.get()) {
             if ((blackHole.tickCount) % 8 == 0 && !blackHole.level.isClientSide) {
                 BlockPos blockPos = new BlockPos(blackHole.getRandomX(0.3), (blackHole.getRandomY() - 10) + (double)blackHole.getRadius(), blackHole.getRandomZ(0.3));
                 Block block = blackHole.level.getBlockState(blockPos).getBlock();
@@ -38,7 +38,7 @@ public class SpellsGoneWrongBlackHoleMixin {
                 }
             }
         }
-        if (blackHole.tickCount > 610 && SpellsGoneWrongCommonConfigs.BLACK_HOLE_CAN_CAUSE_EXPLOSIONS.get()) {
+        if (blackHole.tickCount > 610 && SpellsGoneWrongCommonConfigs.BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS.get()) {
             blackHole.getLevel().addParticle(ParticleTypes.EXPLOSION_EMITTER, true, blackHole.getX(), blackHole.getY() + (double)blackHole.getRadius(), blackHole.getZ(), 0, 0, 0);
         }
     }
