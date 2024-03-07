@@ -6,10 +6,10 @@ modId="spells_gone_wrong" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Spells Gone Wrong" #mandatory
 logoFile="examplemod.png" #optional
-credits="A Special thanks to dreadnews on Discord for the mod idea. This mod was originally going to be a commission for dreadnews on Discord but I loved the mod idea and wanted to make it super configurable so I decided to make it for free and upload it for everyone else!" #optional
+credits="A Special thanks to dreadnews on Discord for the idea to allow owners of spells to take damage. This mod was originally going to be a commission for dreadnews on Discord but I wanted to make the idea configurable and expand on some of the spells so I decided to make it a mod and upload it!" #optional
 authors="KekeCreations" #optional
 description='''
-This mod allows you to take damage from your own casted spells. Only works on spells added by Iron's Spells N Spellbooks [Highly configurable]
+This mod allows you to take damage from your own casted spells and configure new spell features. Only works on spells added by Iron's Spells N Spellbooks [Configurable]
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.spells_gone_wrong]] #optional
