@@ -11,6 +11,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS;
 
     public static final ForgeConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES;
 
 
     static {
@@ -23,6 +24,10 @@ public class SpellsGoneWrongCommonConfigs {
                 .comment("When enabled the Black Hole Spell will become unstable just before the spell expires and cause random explosions around the black hole. When enabled the Black Hole Spell will also display explosion particles (Don't cause damage) in the middle of the black hole when the spell expires")
                 .define("Black Hole Spell Can Cause Explosions Just Before The Spell Expires", true);
 
+        ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES = BUILDER
+                .comment("When enabled the Ice Block Spell can cause Ice Patches when hitting the ground or when hitting water. Ice Patches will place Ice on blocks with the #spells_gone_wrong:ice_patch_replaceable tag and will turn Ice into Packed Ice.")
+                .define("Ice Block Spell Can Cause Ice Patches", true);
+
         BUILDER.pop();
 
         BUILDER.comment("Settings for letting a spell hurt the player who casted it");
@@ -34,7 +39,7 @@ public class SpellsGoneWrongCommonConfigs {
 
         ICE_BLOCK_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Ice Block Spell hurt the player who casted it?")
-                .define("Ice Block Spell Can Hurt Owner", false);
+                .define("Ice Block Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 

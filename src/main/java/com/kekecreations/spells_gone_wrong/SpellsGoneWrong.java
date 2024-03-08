@@ -1,6 +1,7 @@
 package com.kekecreations.spells_gone_wrong;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
+import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongFeatures;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
@@ -42,6 +43,7 @@ public class SpellsGoneWrong
         modEventBus.addListener(this::commonSetup);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SpellsGoneWrongCommonConfigs.SPEC, "spells_gone_wrong-common.toml");
+
 
 
         MinecraftForge.EVENT_BUS.register(this);
