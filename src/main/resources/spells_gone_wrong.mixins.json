@@ -6,6 +6,7 @@
   "refmap": "configurable_falls.refmap.json",
   "mixins": [
     "BlackHoleMixin",
+    "CometMixin",
     "IceBlockProjectileMixin"
   ],
   "client": [
