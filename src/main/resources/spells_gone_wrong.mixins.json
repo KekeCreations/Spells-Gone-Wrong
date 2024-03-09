@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "configurable_falls.refmap.json",
   "mixins": [
-    "SpellsGoneWrongBlackHoleMixin",
-    "SpellsGoneWrongIceBlockProjectileMixin"
+    "BlackHoleMixin",
+    "IceBlockProjectileMixin"
   ],
   "client": [
   ],
