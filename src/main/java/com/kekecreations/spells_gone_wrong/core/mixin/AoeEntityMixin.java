@@ -15,7 +15,7 @@ public class AoeEntityMixin {
     public void spells_gone_wrong_tick(CallbackInfo ci) {
         AoeEntity aoeEntity = AoeEntity.class.cast(this);
         //Poison Cloud from Poison Arrow Spell
-        if (aoeEntity instanceof PoisonCloud && SpellsGoneWrongCommonConfigs.POISON_ARROW_SPELL_CAN_HURT_OWNER.get()) {
+        if (aoeEntity instanceof PoisonCloud && !(aoeEntity.getOwner() instanceof PoisonCloud) && SpellsGoneWrongCommonConfigs.POISON_ARROW_SPELL_CAN_HURT_OWNER.get()) {
             aoeEntity.setOwner(aoeEntity);
         }
     }

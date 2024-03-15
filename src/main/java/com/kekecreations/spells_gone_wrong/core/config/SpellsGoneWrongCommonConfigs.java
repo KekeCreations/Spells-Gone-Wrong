@@ -15,6 +15,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> STARFALL_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> ACID_SPIT_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> POISON_ARROW_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_SPELL_CAN_HURT_OWNER;
 
 
     static {
@@ -55,6 +56,10 @@ public class SpellsGoneWrongCommonConfigs {
         POISON_ARROW_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Poison Arrow and the Poison Clouds spawned by the Poison Arrow Spell hurt the player who casted it?")
                 .define("Poison Arrow Spell Can Hurt Owner", true);
+
+        FIREFLY_SWARM_SPELL_CAN_HURT_OWNER = BUILDER
+                .comment("Should the Fireflies spawned by the Firefly Swarm Spell hurt the player who casted it?")
+                .define("Firefly Swarm Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 
