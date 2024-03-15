@@ -6,9 +6,11 @@
   "refmap": "configurable_falls.refmap.json",
   "mixins": [
     "AcidOrbMixin",
+    "AoeEntityMixin",
     "BlackHoleMixin",
     "CometMixin",
-    "IceBlockProjectileMixin"
+    "IceBlockProjectileMixin",
+    "PoisonArrowMixin"
   ],
   "client": [
   ],
