@@ -13,6 +13,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES;
     public static final ForgeConfigSpec.ConfigValue<Boolean> STARFALL_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> ACID_SPIT_SPELL_CAN_HURT_OWNER;
 
 
     static {
@@ -44,7 +45,11 @@ public class SpellsGoneWrongCommonConfigs {
 
         STARFALL_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Comets spawned by the Starfall Spell hurt the player who casted it?")
-                .define("Starfall Spell Can Hurt Owner", false);
+                .define("Starfall Spell Can Hurt Owner", true);
+
+        ACID_SPIT_SPELL_CAN_HURT_OWNER = BUILDER
+                .comment("Should the Acid Orbs spawned by the Acid Spit Spell hurt the player who casted it?")
+                .define("Acid Spit Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 

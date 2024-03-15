@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "configurable_falls.refmap.json",
   "mixins": [
+    "AcidOrbMixin",
     "BlackHoleMixin",
     "CometMixin",
     "IceBlockProjectileMixin"
