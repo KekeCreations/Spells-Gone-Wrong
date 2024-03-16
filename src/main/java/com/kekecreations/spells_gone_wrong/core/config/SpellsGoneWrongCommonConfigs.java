@@ -17,6 +17,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> POISON_ARROW_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> EARTHQUAKE_SPELL_CAN_HURT_OWNER;
 
 
     static {
@@ -65,6 +66,10 @@ public class SpellsGoneWrongCommonConfigs {
         FIREFLY_SWARM_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Fireflies spawned by the Firefly Swarm Spell hurt the player who casted it?")
                 .define("Firefly Swarm Spell Can Hurt Owner", true);
+
+        EARTHQUAKE_SPELL_CAN_HURT_OWNER = BUILDER
+                .comment("Should the Earthquake Spell hurt the player who casted it?")
+                .define("Earthquake Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 

@@ -2,6 +2,7 @@ package com.kekecreations.spells_gone_wrong.core.mixin;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
 import io.redspace.ironsspellbooks.entity.spells.AoeEntity;
+import io.redspace.ironsspellbooks.entity.spells.EarthquakeAoe;
 import io.redspace.ironsspellbooks.entity.spells.poison_cloud.PoisonCloud;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,6 +17,10 @@ public class AoeEntityMixin {
         AoeEntity aoeEntity = AoeEntity.class.cast(this);
         //Poison Cloud from Poison Arrow Spell
         if (aoeEntity instanceof PoisonCloud && !(aoeEntity.getOwner() instanceof PoisonCloud) && SpellsGoneWrongCommonConfigs.POISON_ARROW_SPELL_CAN_HURT_OWNER.get()) {
+            aoeEntity.setOwner(aoeEntity);
+        }
+        //Earthquake Spell
+        if (aoeEntity instanceof EarthquakeAoe && !(aoeEntity.getOwner() instanceof EarthquakeAoe) && SpellsGoneWrongCommonConfigs.EARTHQUAKE_SPELL_CAN_HURT_OWNER.get()) {
             aoeEntity.setOwner(aoeEntity);
         }
     }
