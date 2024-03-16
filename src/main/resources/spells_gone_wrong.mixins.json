@@ -9,6 +9,7 @@
     "AoeEntityMixin",
     "BlackHoleMixin",
     "CometMixin",
+    "FireBombMixin",
     "FireflySwarmProjectileMixin",
     "IceBlockProjectileMixin",
     "PoisonArrowMixin"
