@@ -16,6 +16,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> ACID_SPIT_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> POISON_ARROW_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT;
 
 
     static {
@@ -31,6 +32,10 @@ public class SpellsGoneWrongCommonConfigs {
         ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES = BUILDER
                 .comment("When enabled the Ice Block Spell can cause Ice Patches when hitting the ground or when hitting water. Ice Patches will place Ice on blocks with the #spells_gone_wrong:ice_patch_replaceable tag and will turn Ice into Packed Ice.")
                 .define("Ice Block Spell Can Cause Ice Patches", true);
+
+        FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT = BUILDER
+                .comment("When enabled the Firefly Swarm Spell will give the glowing effect to nearby enemies")
+                .define("Firefly Swarm Spell Can Give Glowing Effect", true);
 
         BUILDER.pop();
 
