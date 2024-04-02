@@ -8,6 +8,7 @@
     "AcidOrbMixin",
     "AoeEntityMixin",
     "BlackHoleMixin",
+    "ChainLightningMixin",
     "CometMixin",
     "FireBombMixin",
     "FireflySwarmProjectileMixin",

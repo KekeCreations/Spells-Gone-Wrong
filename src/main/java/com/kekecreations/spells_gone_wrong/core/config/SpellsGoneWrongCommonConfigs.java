@@ -21,6 +21,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> MAGMA_BOMB_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> WALL_OF_FIRE_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> SCULK_TENTACLES_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> CHAIN_LIGHTNING_SPELL_CAN_HURT_OWNER;
 
 
     static {
@@ -84,7 +85,11 @@ public class SpellsGoneWrongCommonConfigs {
 
         SCULK_TENTACLES_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Void Tentacles spawned by the Sculk Tentacles Spell hurt the player who casted it?")
-                .define("Sculk Spell Can Hurt Owner", true);
+                .define("Sculk Tentacles Spell Can Hurt Owner", true);
+
+        CHAIN_LIGHTNING_SPELL_CAN_HURT_OWNER = BUILDER
+                .comment("Should the Chain Lightning Spell hurt the player who casted it?")
+                .define("Chain Lightning Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 
