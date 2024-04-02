@@ -13,6 +13,7 @@
     "FireflySwarmProjectileMixin",
     "IceBlockProjectileMixin",
     "PoisonArrowMixin",
+    "VoidTentacleMixin",
     "WallOfFireEntityMixin"
   ],
   "client": [
