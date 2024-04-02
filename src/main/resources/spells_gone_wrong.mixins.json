@@ -12,7 +12,8 @@
     "FireBombMixin",
     "FireflySwarmProjectileMixin",
     "IceBlockProjectileMixin",
-    "PoisonArrowMixin"
+    "PoisonArrowMixin",
+    "WallOfFireEntityMixin"
   ],
   "client": [
   ],

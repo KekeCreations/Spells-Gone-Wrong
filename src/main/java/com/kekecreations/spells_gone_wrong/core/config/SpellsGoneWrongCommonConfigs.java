@@ -19,6 +19,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT;
     public static final ForgeConfigSpec.ConfigValue<Boolean> EARTHQUAKE_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> MAGMA_BOMB_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> WALL_OF_FIRE_SPELL_CAN_HURT_OWNER;
 
 
     static {
@@ -75,6 +76,10 @@ public class SpellsGoneWrongCommonConfigs {
         MAGMA_BOMB_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Magma Bomb and the Fire Field spawned by the Magma Bomb Spell hurt the player who casted it?")
                 .define("Magma Bomb Spell Can Hurt Owner", true);
+
+        WALL_OF_FIRE_SPELL_CAN_HURT_OWNER = BUILDER
+                .comment("Should the Wall Of Fire Spell hurt the player who casted it?")
+                .define("Wall Of Fire Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 
