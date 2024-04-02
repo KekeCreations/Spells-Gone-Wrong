@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(FireBomb.class)
 public class FireBombMixin {
 
-    @Inject(method = "onHit", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/magma_ball/FireBomb.getExplosionRadius ()F"))
+    @Inject(method = "onHit", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/magma_ball/FireBomb.getExplosionRadius ()F"), remap = false)
     public void spells_gone_wrong_onHit(CallbackInfo ci) {
         FireBomb fireBomb = FireBomb.class.cast(this);
         if (!(fireBomb.getOwner() instanceof FireBomb) && SpellsGoneWrongCommonConfigs.MAGMA_BOMB_SPELL_CAN_HURT_OWNER.get()) {

@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CometMixin {
 
 
-    @Inject(method = "onHit", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/comet/Comet.getImpactSound ()Ljava/util/Optional;"))
+    @Inject(method = "onHit", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/comet/Comet.getImpactSound ()Ljava/util/Optional;"), remap = false)
     public void spells_gone_wrong_onHit(CallbackInfo ci) {
         Comet comet = Comet.class.cast(this);
         if (!(comet.getOwner() instanceof Comet) && SpellsGoneWrongCommonConfigs.STARFALL_SPELL_CAN_HURT_OWNER.get()) {

@@ -1,8 +1,6 @@
 package com.kekecreations.spells_gone_wrong.core.mixin;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
-import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import io.redspace.ironsspellbooks.entity.spells.firefly_swarm.FireflySwarmProjectile;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -15,18 +13,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import javax.annotation.Nullable;
-
-@Mixin(FireflySwarmProjectile.class)
+@Mixin(value = FireflySwarmProjectile.class, remap = false)
 public abstract class FireflySwarmProjectileMixin {
 
-    @Shadow private Entity cachedTarget;
-
-    @Shadow @Nullable public abstract Entity getFireflyTarget();
 
     @Shadow protected abstract boolean canHitEntity(Entity target);
 
-    @Shadow public abstract @org.jetbrains.annotations.Nullable LivingEntity getTarget();
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "net/minecraft/world/entity/PathfinderMob.tick ()V"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {

@@ -3,7 +3,7 @@
   "minVersion": "0.8",
   "package": "com.kekecreations.spells_gone_wrong.core.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "configurable_falls.refmap.json",
+  "refmap": "spells_gone_wrong.refmap.json",
   "mixins": [
     "AcidOrbMixin",
     "AoeEntityMixin",

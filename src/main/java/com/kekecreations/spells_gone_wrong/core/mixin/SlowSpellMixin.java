@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Mixin(SlowSpell.class)
+@Mixin(value = SlowSpell.class, remap = false)
 public class SlowSpellMixin {
 
     @Shadow
