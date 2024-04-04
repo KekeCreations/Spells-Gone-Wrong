@@ -13,6 +13,7 @@
     "FireBombMixin",
     "FireflySwarmProjectileMixin",
     "IceBlockProjectileMixin",
+    "LightningBoltSpellMixin",
     "PoisonArrowMixin",
     "SlowSpellMixin",
     "VoidTentacleMixin",
