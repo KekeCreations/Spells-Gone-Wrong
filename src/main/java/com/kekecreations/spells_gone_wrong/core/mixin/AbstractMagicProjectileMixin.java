@@ -20,7 +20,7 @@ public class AbstractMagicProjectileMixin {
             abstractMagicProjectile.setOwner(abstractMagicProjectile);
         }
         //Blood Needles Spell
-        if (abstractMagicProjectile instanceof BloodNeedle && !(abstractMagicProjectile.getOwner() instanceof BloodNeedle) && SpellsGoneWrongCommonConfigs.BLOOD_NEEDLES_SPELL_CAN_HURT_OWNER.get()) {
+        if (abstractMagicProjectile instanceof BloodNeedle && !(abstractMagicProjectile.getOwner() instanceof BloodNeedle) && SpellsGoneWrongCommonConfigs.BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER.get()) {
             abstractMagicProjectile.setOwner(abstractMagicProjectile);
         }
     }
