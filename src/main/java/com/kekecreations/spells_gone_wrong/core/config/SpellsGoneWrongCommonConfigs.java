@@ -24,6 +24,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> CHAIN_LIGHTNING_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> SLOW_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER;
 
 
     static {
@@ -100,6 +101,10 @@ public class SpellsGoneWrongCommonConfigs {
         LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Lightning Bolt Spell hurt the player who casted it?")
                 .define("Lightning Bolt Spell Can Hurt Owner", true);
+
+        LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER = BUILDER
+                .comment("Should the Lightning Lance Spell hurt the player who casted it?")
+                .define("Lightning Lance Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 
