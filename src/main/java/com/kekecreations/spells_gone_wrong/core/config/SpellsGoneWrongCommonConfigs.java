@@ -26,6 +26,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER;
 
 
     static {
@@ -110,6 +111,10 @@ public class SpellsGoneWrongCommonConfigs {
         BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Blood Needles Spell and Acupuncture Spell hurt the player who casted it?")
                 .define("Blood Needles Spell And Acupuncture Spell Can Hurt Owner", true);
+
+        FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER = BUILDER
+                .comment("Should the Fang Strike Spell and Fang Ward Spell hurt the player who casted it?")
+                .define("Fang Strike Spell And Fang Ward Spell Can Hurt Owner", true);
 
         BUILDER.pop();
 
