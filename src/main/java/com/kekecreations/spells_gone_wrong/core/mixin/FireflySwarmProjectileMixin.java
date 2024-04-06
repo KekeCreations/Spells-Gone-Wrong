@@ -30,7 +30,7 @@ public abstract class FireflySwarmProjectileMixin {
         FireflySwarmProjectile fireflySwarmProjectile = FireflySwarmProjectile.class.cast(this);
         if (SpellsGoneWrongCommonConfigs.FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT.get()) {
             double inflate = 2.0F - fireflySwarmProjectile.getBbWidth() * 0.5F;
-            fireflySwarmProjectile.level.getEntities(fireflySwarmProjectile, fireflySwarmProjectile.getBoundingBox().inflate((double) inflate), Entity::isAlive).forEach((entity) -> {
+            fireflySwarmProjectile.level().getEntities(fireflySwarmProjectile, fireflySwarmProjectile.getBoundingBox().inflate((double) inflate), Entity::isAlive).forEach((entity) -> {
                 if (!entity.isSpectator() && entity.isAlive() && entity.isPickable() && entity instanceof LivingEntity livingEntity) {
                     if (livingEntity instanceof Player player) {
                         if (!player.isCreative() && !player.isSpectator()) {

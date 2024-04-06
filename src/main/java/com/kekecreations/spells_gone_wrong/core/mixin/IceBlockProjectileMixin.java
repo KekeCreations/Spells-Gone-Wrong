@@ -5,6 +5,8 @@ import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongFeatures
 import io.redspace.ironsspellbooks.entity.spells.ice_block.IceBlockProjectile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
@@ -35,14 +37,15 @@ public class IceBlockProjectileMixin {
 
 
         if (SpellsGoneWrongCommonConfigs.ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES.get()) {
-            Level pLevel = iceBlockProjectile.getLevel();
+            Level pLevel = iceBlockProjectile.level();
             RandomSource pRandom = pLevel.getRandom();
             BlockPos pPos = new BlockPos(iceBlockProjectile.getBlockX(), iceBlockProjectile.getBlockY(), iceBlockProjectile.getBlockZ());
             MinecraftServer serverLevel = pLevel.getServer();
-            if (pLevel.getFluidState(pPos.below()).is(FluidTags.WATER) || iceBlockProjectile.isOnGround()) {
+            if (pLevel.getFluidState(pPos.below()).is(FluidTags.WATER) || iceBlockProjectile.onGround()) {
                 if (serverLevel != null && !pLevel.getFluidState(pPos).is(FluidTags.WATER)) {
                     ChunkGenerator pGenerator = serverLevel.overworld().getChunkSource().getGenerator();
-                    Holder<? extends ConfiguredFeature<?, ?>> holder = SpellsGoneWrongFeatures.ConfiguredFeatures.ICE_PATCH;
+                    ResourceKey<ConfiguredFeature<?, ?>> getTreeFeature = SpellsGoneWrongFeatures.ConfiguredFeatures.ICE_PATCH;
+                    Holder<ConfiguredFeature<?, ?>> holder = pLevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(getTreeFeature).orElse((Holder.Reference<ConfiguredFeature<?, ?>>)null);
                     net.minecraftforge.event.level.SaplingGrowTreeEvent event = net.minecraftforge.event.ForgeEventFactory.blockGrowFeature(pLevel, pRandom, pPos, holder);
                     ConfiguredFeature<?, ?> configuredfeature = event.getFeature().value();
                     configuredfeature.place((WorldGenLevel) pLevel, pGenerator, pRandom, pPos);
