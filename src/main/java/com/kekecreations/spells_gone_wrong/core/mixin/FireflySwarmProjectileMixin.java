@@ -8,16 +8,12 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = FireflySwarmProjectile.class, remap = false)
+@Mixin(value = FireflySwarmProjectile.class)
 public abstract class FireflySwarmProjectileMixin {
-
-
-    @Shadow protected abstract boolean canHitEntity(Entity target);
 
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "net/minecraft/world/entity/PathfinderMob.tick ()V"))
@@ -35,7 +31,7 @@ public abstract class FireflySwarmProjectileMixin {
         if (SpellsGoneWrongCommonConfigs.FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT.get()) {
             double inflate = 2.0F - fireflySwarmProjectile.getBbWidth() * 0.5F;
             fireflySwarmProjectile.level.getEntities(fireflySwarmProjectile, fireflySwarmProjectile.getBoundingBox().inflate((double) inflate), Entity::isAlive).forEach((entity) -> {
-                if (canHitEntity(entity) && entity instanceof LivingEntity livingEntity) {
+                if (!entity.isSpectator() && entity.isAlive() && entity.isPickable() && entity instanceof LivingEntity livingEntity) {
                     if (livingEntity instanceof Player player) {
                         if (!player.isCreative() && !player.isSpectator()) {
                             int randDuration = fireflySwarmProjectile.getRandom().nextInt(40);
