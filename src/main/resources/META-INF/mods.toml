@@ -3,7 +3,7 @@ loaderVersion="[43,)" #mandatory This is typically bumped every Minecraft versio
 license="All rights reserved"
 [[mods]] #mandatory
 modId="spells_gone_wrong" #mandatory
-version="${file.jarVersion}" #mandatory
+version="1.19.2-1.0.0" #mandatory
 displayName="Spells Gone Wrong" #mandatory
 logoFile="mod_icon.png" #optional
 credits="A Special thanks to dreadnews on Discord for the idea to allow owners of spells to take damage. This mod was originally going to be a commission for dreadnews on Discord but I wanted to make the idea configurable and expand on some of the spells so I decided to make it a mod and upload it!" #optional
@@ -23,7 +23,41 @@ This mod allows you to take damage from your own casted spells and configure new
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
+[[dependencies.spells_gone_wrong]]
+    modId="playeranimator" #mandatory
+    mandatory=true #mandatory
+    versionRange="[1.0.2,)" #mandatory
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.spells_gone_wrong]]
+    modId="geckolib3" #mandatory
+    mandatory=true #mandatory
+    versionRange="[3.1.39,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.spells_gone_wrong]]
+    modId="curios" #mandatory
+    mandatory=true #mandatory
+    versionRange="[1.19.2-5.1.4.3,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.spells_gone_wrong]]
+    modId="caelus" #mandatory
+    mandatory=true #mandatory
+    versionRange="[1.19.2-3.0.0.6,)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.spells_gone_wrong]]
+    modId = "irons_spellbooks"
+    mandatory = true
+    versionRange = "[1.19.2-3.1.1,)"
+    ordering = "BEFORE"
+    side = "BOTH"
+
 [[dependencies.spells_gone_wrong]]
     modId="minecraft"
     mandatory=true
@@ -31,3 +65,4 @@ This mod allows you to take damage from your own casted spells and configure new
     versionRange="[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"
+
