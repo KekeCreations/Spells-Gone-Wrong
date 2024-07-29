@@ -28,7 +28,7 @@ public class LightningBoltSpellMixin {
 
             for (Player target : level.getEntitiesOfClass(Player.class, AABB.ofSize(pos, (double) (radius * 2.0F), (double) (radius * 2.0F), (double) (radius * 2.0F)))) {
                 float finalDamage = (float) ((double) damage * (1.0 - playerDistance / (double) (radius * radius)));
-                DamageSources.applyDamage(target, finalDamage, $this.getDamageSource(lightningBolt, entity));
+                DamageSources.applyDamage(target, finalDamage, $this.getDamageSource(lightningBolt));
             }
         }
     }

@@ -3,7 +3,7 @@ loaderVersion="[47,)" #mandatory This is typically bumped every Minecraft versio
 license="All rights reserved"
 [[mods]] #mandatory
 modId="spells_gone_wrong" #mandatory
-version="1.20.1-1.0.0" #mandatory
+version="1.20.1-1.0.1" #mandatory
 displayName="Spells Gone Wrong" #mandatory
 logoFile="mod_icon.png" #optional
 credits="A Special thanks to dreadnews on Discord for the idea to allow owners of spells to take damage. This mod was originally going to be a commission for dreadnews on Discord but I wanted to make the idea configurable and expand on some of the spells so I decided to make it a mod and upload it!" #optional
