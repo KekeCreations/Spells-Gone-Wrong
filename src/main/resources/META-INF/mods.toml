@@ -11,6 +11,7 @@ authors="KekeCreations" #optional
 description='''
 This mod allows you to take damage from your own casted spells and configure new spell features. Only works on spells added by Iron's Spells N Spellbooks [Configurable]
 '''
+updateJSONURL="https://raw.githubusercontent.com/KekeCreations/Spells-Gone-Wrong/refs/heads/1.20.1x/forge_updates.json"
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.spells_gone_wrong]] #optional
     # the modid of the dependency
