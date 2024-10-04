@@ -16,7 +16,7 @@ public class AbstractMagicProjectileMixin {
 
     @Inject(method = "tick", at = @At(value = "HEAD"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
-        AbstractMagicProjectile abstractMagicProjectile = AbstractMagicProjectile.class.cast(this);
+        AbstractMagicProjectile abstractMagicProjectile = (AbstractMagicProjectile) (Object) this;
         //Lightning Lance Spell
         if (abstractMagicProjectile instanceof LightningLanceProjectile && !(abstractMagicProjectile.getOwner() instanceof LightningLanceProjectile) && SpellsGoneWrongCommonConfigs.LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER.get()) {
             abstractMagicProjectile.setOwner(abstractMagicProjectile);

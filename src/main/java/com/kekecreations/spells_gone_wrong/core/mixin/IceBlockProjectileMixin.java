@@ -24,17 +24,10 @@ public class IceBlockProjectileMixin {
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/ice_block/IceBlockProjectile.getXRot ()F"))
     public void spell_gone_wrong_tick(CallbackInfo ci) {
-
-        IceBlockProjectile iceBlockProjectile = IceBlockProjectile.class.cast(this);
+        IceBlockProjectile iceBlockProjectile = (IceBlockProjectile) (Object) this;
         if (!(iceBlockProjectile.getOwner() instanceof IceBlockProjectile) && SpellsGoneWrongCommonConfigs.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
             iceBlockProjectile.setOwner(iceBlockProjectile);
         }
-
-
-
-
-
-
 
         if (SpellsGoneWrongCommonConfigs.ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES.get()) {
             Level pLevel = iceBlockProjectile.level();

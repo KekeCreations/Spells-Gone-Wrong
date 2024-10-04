@@ -4,7 +4,6 @@ import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConf
 import io.redspace.ironsspellbooks.entity.spells.black_hole.BlackHole;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -19,7 +18,7 @@ public class BlackHoleMixin {
 
     @Inject(method = "tick", at = @At(value = "HEAD"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
-        BlackHole blackHole = BlackHole.class.cast(this);
+        BlackHole blackHole = (BlackHole) (Object) this;
         if (!(blackHole.getOwner() instanceof BlackHole) && SpellsGoneWrongCommonConfigs.BLACK_HOLE_SPELL_CAN_HURT_OWNER.get()) {
             blackHole.setOwner(blackHole);
         }

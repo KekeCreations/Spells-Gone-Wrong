@@ -12,7 +12,7 @@ public class WallOfFireEntityMixin {
 
     @Inject(method = "tick", at = @At(value = "TAIL"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
-        WallOfFireEntity wallOfFire = WallOfFireEntity.class.cast(this);
+        WallOfFireEntity wallOfFire = (WallOfFireEntity) (Object) this;
         if (!(wallOfFire.getOwner() instanceof WallOfFireEntity) && SpellsGoneWrongCommonConfigs.WALL_OF_FIRE_SPELL_CAN_HURT_OWNER.get()) {
             wallOfFire.setOwner(wallOfFire);
         }

@@ -12,7 +12,7 @@ public class AcidOrbMixin {
 
     @Inject(method = "onHit", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/acid_orb/AcidOrb.getBoundingBox ()Lnet/minecraft/world/phys/AABB;"))
     public void spells_gone_wrong_onHit(CallbackInfo ci) {
-        AcidOrb acidOrb = AcidOrb.class.cast(this);
+        AcidOrb acidOrb = (AcidOrb) (Object) this;
         if (!(acidOrb.getOwner() instanceof AcidOrb) && SpellsGoneWrongCommonConfigs.ACID_SPIT_SPELL_CAN_HURT_OWNER.get()) {
             acidOrb.setOwner(acidOrb);
         }

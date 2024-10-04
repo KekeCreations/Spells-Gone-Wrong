@@ -23,7 +23,7 @@ public class LightningBoltSpellMixin {
     @Inject(method = "onCast", at = @At(value = "TAIL"), remap = false)
     public void spells_gone_wrong_onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData, CallbackInfo ci, @Local(name="pos") Vec3 pos, @Local(name="radius") float radius, @Local(name="damage") float damage, @Local(name="lightningBolt") LightningBolt lightningBolt) {
         if (SpellsGoneWrongCommonConfigs.LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER.get()) {
-            LightningBoltSpell $this = LightningBoltSpell.class.cast(this);
+            LightningBoltSpell $this = (LightningBoltSpell) (Object) this;
             double playerDistance = 0;
 
             for (Player target : level.getEntitiesOfClass(Player.class, AABB.ofSize(pos, (double) (radius * 2.0F), (double) (radius * 2.0F), (double) (radius * 2.0F)))) {

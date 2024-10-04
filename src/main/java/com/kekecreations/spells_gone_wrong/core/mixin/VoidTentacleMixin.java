@@ -12,7 +12,7 @@ public class VoidTentacleMixin {
 
     @Inject(method = "tick", at = @At(value = "TAIL"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
-        VoidTentacle voidTentacle = VoidTentacle.class.cast(this);
+        VoidTentacle voidTentacle = (VoidTentacle) (Object) this;
         if (!(voidTentacle.getOwner() instanceof VoidTentacle) && SpellsGoneWrongCommonConfigs.SCULK_TENTACLES_SPELL_CAN_HURT_OWNER.get()) {
             voidTentacle.setOwner(voidTentacle);
         }

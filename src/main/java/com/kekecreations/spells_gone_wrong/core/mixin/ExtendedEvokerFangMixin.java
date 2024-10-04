@@ -12,7 +12,7 @@ public class ExtendedEvokerFangMixin {
 
     @Inject(method = "tick", at = @At(value = "HEAD"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
-        ExtendedEvokerFang extendedEvokerFang = ExtendedEvokerFang.class.cast(this);
+        ExtendedEvokerFang extendedEvokerFang = (ExtendedEvokerFang) (Object) this;
         if ((extendedEvokerFang.getOwner() != null) && SpellsGoneWrongCommonConfigs.FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER.get()) {
             extendedEvokerFang.setOwner(null);
         }

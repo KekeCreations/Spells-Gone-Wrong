@@ -15,7 +15,7 @@ public class AoeEntityMixin {
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "net/minecraft/world/entity/projectile/Projectile.tick ()V"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
-        AoeEntity aoeEntity = AoeEntity.class.cast(this);
+        AoeEntity aoeEntity = (AoeEntity) (Object) this;
         //Poison Cloud from Poison Arrow Spell
         if (aoeEntity instanceof PoisonCloud && !(aoeEntity.getOwner() instanceof PoisonCloud) && SpellsGoneWrongCommonConfigs.POISON_ARROW_SPELL_CAN_HURT_OWNER.get()) {
             aoeEntity.setOwner(aoeEntity);

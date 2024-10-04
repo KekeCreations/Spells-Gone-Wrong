@@ -31,7 +31,6 @@ public class SlowSpellMixin {
 
     @Inject(method = "lambda$onCast$0", at = @At(value = "INVOKE", target = "java/util/concurrent/atomic/AtomicInteger.get ()I"))
     public void spells_gone_wrong_onCast(AtomicInteger targets, LivingEntity entity, LivingEntity targetEntity, float radius, int spellLevel, LivingEntity victim, CallbackInfo ci) {
-
         if (SpellsGoneWrongCommonConfigs.SLOW_SPELL_CAN_HURT_OWNER.get()) {
             if (targets.get() < 5 && victim == entity && entity instanceof Player player && !player.isCreative() && !player.isSpectator() && victim.distanceToSqr(targetEntity) < (double) (radius * radius) && !DamageSources.isFriendlyFireBetween(entity, victim)) {
                 victim.addEffect(new MobEffectInstance((MobEffect) MobEffectRegistry.SLOWED.get(), this.getDuration(spellLevel, entity), this.getAmplifier(spellLevel, entity)));
