@@ -10,10 +10,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = WispEntity.class, remap = false)
+@Mixin(value = WispEntity.class)
 public class WispEntityMixin {
 
-    @Shadow
+    @Shadow(remap = false)
     private float damageAmount;
 
     @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/api/spells/AbstractSpell.getDamageSource (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/Entity;)Lio/redspace/ironsspellbooks/damage/SpellDamageSource;"))
