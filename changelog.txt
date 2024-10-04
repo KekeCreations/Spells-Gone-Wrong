@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+V1.0.2
+- Added a configurable feature that makes Holy Spells do more damage to undead mobs.
+- Holy Spells now deals smite weakness to undead mobs when Consecration is installed and the feature is enabled.
+- Optimised all mixins.
+- Added forge_updates.json file to notify people for mod updates in game!
+- Started a changelog.txt to keep track of new features!
