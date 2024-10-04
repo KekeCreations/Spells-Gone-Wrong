@@ -28,6 +28,7 @@ public class SpellsGoneWrongCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Boolean> BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER;
     public static final ForgeConfigSpec.ConfigValue<Boolean> FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER;
 
+    public static final ForgeConfigSpec.ConfigValue<Boolean> HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS;
 
     static {
         BUILDER.push("Spells Gone Wrong Config");
@@ -46,6 +47,10 @@ public class SpellsGoneWrongCommonConfigs {
         FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT = BUILDER
                 .comment("When enabled the Firefly Swarm Spell will give the glowing effect to nearby enemies")
                 .define("Firefly Swarm Spell Can Give Glowing Effect", true);
+
+        HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS = BUILDER
+                .comment("When enabled Holy Spells that deal damage do extra damage to undead mobs. When enabled with Consecration installed, Holy Spells will cause smite weakness")
+                .define("Holy Spells Do Extra Damage To Undead Mobs", true);
 
         BUILDER.pop();
 

@@ -10,6 +10,7 @@
     "AoeEntityMixin",
     "BlackHoleMixin",
     "ChainLightningMixin",
+    "DivineSmiteSpellMixin",
     "ExtendedEvokerFangMixin",
     "FireflySwarmProjectileMixin",
     "GuidingBoltProjectileMixin",
@@ -18,7 +19,8 @@
     "PoisonArrowMixin",
     "SlowSpellMixin",
     "VoidTentacleMixin",
-    "WallOfFireEntityMixin"
+    "WallOfFireEntityMixin",
+    "WispEntityMixin"
   ],
   "client": [
   ],
