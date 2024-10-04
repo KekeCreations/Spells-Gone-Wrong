@@ -12,6 +12,7 @@
     "ChainLightningMixin",
     "ExtendedEvokerFangMixin",
     "FireflySwarmProjectileMixin",
+    "GuidingBoltProjectileMixin",
     "IceBlockProjectileMixin",
     "LightningBoltSpellMixin",
     "PoisonArrowMixin",
