@@ -1,10 +1,7 @@
 package com.kekecreations.spells_gone_wrong.core.config;
 
-import com.kekecreations.spells_gone_wrong.SpellsGoneWrong;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-@EventBusSubscriber(modid = SpellsGoneWrong.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class SpellsGoneWrongCommonConfig {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     public static final ModConfigSpec SPEC;

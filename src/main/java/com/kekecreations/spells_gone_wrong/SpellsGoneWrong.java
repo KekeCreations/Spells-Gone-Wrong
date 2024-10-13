@@ -23,7 +23,7 @@ public class SpellsGoneWrong {
         modEventBus.addListener(this::commonSetup);
 
 
-        NeoForge.EVENT_BUS.register(this);
+        //NeoForge.EVENT_BUS.register(this);
 
 
         modContainer.registerConfig(ModConfig.Type.COMMON, SpellsGoneWrongCommonConfig.SPEC);
