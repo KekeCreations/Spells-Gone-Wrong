@@ -1,34 +1,37 @@
 package com.kekecreations.spells_gone_wrong.core.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import com.kekecreations.spells_gone_wrong.SpellsGoneWrong;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
-public class SpellsGoneWrongCommonConfigs {
-    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec SPEC;
+@EventBusSubscriber(modid = SpellsGoneWrong.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+public class SpellsGoneWrongCommonConfig {
+    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec SPEC;
 
-    public static final ForgeConfigSpec.ConfigValue<Boolean> BLACK_HOLE_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> BLACK_HOLE_SPELL_CAN_HURT_OWNER;
 
-    public static final ForgeConfigSpec.ConfigValue<Boolean> BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS;
+    public static final ModConfigSpec.ConfigValue<Boolean> BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS;
 
-    public static final ForgeConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> STARFALL_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> ACID_SPIT_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> POISON_ARROW_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> EARTHQUAKE_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> MAGMA_BOMB_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> WALL_OF_FIRE_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> SCULK_TENTACLES_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> CHAIN_LIGHTNING_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> SLOW_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER;
-    public static final ForgeConfigSpec.ConfigValue<Boolean> FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES;
+    public static final ModConfigSpec.ConfigValue<Boolean> STARFALL_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> ACID_SPIT_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> POISON_ARROW_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT;
+    public static final ModConfigSpec.ConfigValue<Boolean> EARTHQUAKE_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> MAGMA_BOMB_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> WALL_OF_FIRE_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> SCULK_TENTACLES_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> CHAIN_LIGHTNING_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> SLOW_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER;
+    public static final ModConfigSpec.ConfigValue<Boolean> FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER;
 
-    public static final ForgeConfigSpec.ConfigValue<Boolean> HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS;
+    public static final ModConfigSpec.ConfigValue<Boolean> HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS;
 
     static {
         BUILDER.push("Spells Gone Wrong Config");
@@ -122,11 +125,6 @@ public class SpellsGoneWrongCommonConfigs {
                 .define("Fang Strike Spell And Fang Ward Spell Can Hurt Owner", true);
 
         BUILDER.pop();
-
-
-
-
-
 
 
         BUILDER.pop();

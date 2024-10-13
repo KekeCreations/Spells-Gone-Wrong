@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+logoFile="mod_icon.png"
+credits="A Special thanks to dreadnews on Discord for the idea to allow owners of spells to take damage. This mod was originally going to be a commission for dreadnews on Discord but I wanted to make the idea configurable and expand on some of the spells so I decided to make it a mod and upload it!"
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
