@@ -80,14 +80,11 @@ dependencies {
     implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     //Curios mod
     implementation "curse.maven:adorned-1036809:5546365"
-   // implementation ("top.theillusivec4.curios:curios-forge:${curios_version}:api")
-   // runtimeOnly ("top.theillusivec4.curios:curios-forge:${curios_version}")
+
+    //Don't need these mods
+    implementation "curse.maven:neat-238372:5783852"
 }
 
-// This block of code expands all declared replace properties in the specified resource targets.
-// A missing property will result in an error. Properties are expanded using ${} Groovy notation.
-// When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
-// See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
 tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [
             minecraft_version      : minecraft_version,
