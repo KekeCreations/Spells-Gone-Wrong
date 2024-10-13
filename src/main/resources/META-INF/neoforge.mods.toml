@@ -11,6 +11,9 @@ credits="A Special thanks to dreadnews on Discord for the idea to allow owners o
 authors="${mod_authors}"
 description='''${mod_description}'''
 
+[[mixins]]
+config = "spells_gone_wrong.mixins.json"
+
 
 [[dependencies.${mod_id}]]
     modId="neoforge"

@@ -1,6 +1,7 @@
 package com.kekecreations.spells_gone_wrong;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
+import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -30,5 +31,9 @@ public class SpellsGoneWrong {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+    }
+
+    public static ResourceLocation id(String name) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
     }
 }
