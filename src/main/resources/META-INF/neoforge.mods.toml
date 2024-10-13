@@ -28,3 +28,11 @@ config = "spells_gone_wrong.mixins.json"
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+
+[[dependencies.${mod_id}]]
+modId = "irons_spellbooks"
+mandatory = true
+versionRange = "[1.21-3.7.1,)"
+ordering = "BEFORE"
+side = "BOTH"
