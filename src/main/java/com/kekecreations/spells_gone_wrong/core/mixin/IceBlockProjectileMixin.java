@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(IceBlockProjectile.class)
 public class IceBlockProjectileMixin {
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/ice_block/IceBlockProjectile.getXRot ()F"))
+    @Inject(method = "tick", at = @At(value = "TAIL"))
     public void spell_gone_wrong_tick(CallbackInfo ci) {
         IceBlockProjectile iceBlockProjectile = (IceBlockProjectile) (Object) this;
         if (!(iceBlockProjectile.getOwner() instanceof IceBlockProjectile) && SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
@@ -40,7 +40,6 @@ public class IceBlockProjectileMixin {
                     ChunkGenerator pGenerator = serverLevel.overworld().getChunkSource().getGenerator();
                     ResourceKey<ConfiguredFeature<?, ?>> getTreeFeature = SpellsGoneWrongFeatures.ConfiguredFeatures.ICE_PATCH;
                     Holder<ConfiguredFeature<?, ?>> holder = pLevel.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolder(getTreeFeature).orElse((Holder.Reference<ConfiguredFeature<?, ?>>)null);
-                    //BlockGrowFeatureEvent event = net.neoforged.neoforge.event.ForgeEventFactory.blockGrowFeature(pLevel, pRandom, pPos, holder);
                     BlockGrowFeatureEvent event = new BlockGrowFeatureEvent(pLevel, pRandom, pPos, holder);
                     ConfiguredFeature<?, ?> configuredfeature = event.getFeature().value();
                     configuredfeature.place((WorldGenLevel) pLevel, pGenerator, pRandom, pPos);

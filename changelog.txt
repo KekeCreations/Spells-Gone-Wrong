@@ -1,3 +1,9 @@
+
+V1.0.3
+- The mod now only supports 1.21.1
+- The mod now supports the current latest version of Iron's Spells N Spellbooks (3.11.0)
+
+
 V1.21-1.0.2
 - Ported all features on 1.20.1 to 1.21
 
