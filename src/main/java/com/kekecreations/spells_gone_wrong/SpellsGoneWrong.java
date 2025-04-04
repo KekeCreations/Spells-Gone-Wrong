@@ -1,6 +1,8 @@
 package com.kekecreations.spells_gone_wrong;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
+import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongSpells;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
@@ -11,7 +13,6 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
 
 @Mod(SpellsGoneWrong.MOD_ID)
 public class SpellsGoneWrong {
@@ -23,6 +24,8 @@ public class SpellsGoneWrong {
     public SpellsGoneWrong(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
+        //SpellsGoneWrongSpells.SPELLS.register(modEventBus);
+        SpellsGoneWrongSpells.register(modEventBus);
 
         //NeoForge.EVENT_BUS.register(this);
 
