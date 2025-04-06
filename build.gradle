@@ -168,6 +168,6 @@ dependencies {
     implementation "curse.maven:curios-309927:6383945"
 
     //Don't need these mods
-    //implementation "curse.maven:neat-238372:5783852"
+    implementation "curse.maven:neat-238372:5838045"
 }
 

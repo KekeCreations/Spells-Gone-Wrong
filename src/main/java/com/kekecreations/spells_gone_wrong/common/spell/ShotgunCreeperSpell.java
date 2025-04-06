@@ -1,14 +1,13 @@
 package com.kekecreations.spells_gone_wrong.common.spell;
 
 import com.kekecreations.spells_gone_wrong.SpellsGoneWrong;
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.registry.SchoolRegistry;
 import io.redspace.ironsspellbooks.api.spells.*;
 import io.redspace.ironsspellbooks.api.util.Utils;
-import io.redspace.ironsspellbooks.config.ServerConfigs;
 import io.redspace.ironsspellbooks.entity.spells.creeper_head.CreeperHeadProjectile;
-import io.redspace.ironsspellbooks.spells.evocation.LobCreeperSpell;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -25,7 +24,12 @@ public class ShotgunCreeperSpell extends AbstractSpell {
     private final DefaultConfig defaultConfig;
 
     public ShotgunCreeperSpell() {
-        this.defaultConfig = (new DefaultConfig()).setMinRarity(SpellRarity.UNCOMMON).setSchoolResource(SchoolRegistry.EVOCATION_RESOURCE).setMaxLevel(10).setCooldownSeconds((double)2.0F).build();
+        this.defaultConfig = (new DefaultConfig()).setMinRarity(SpellRarity.RARE).setSchoolResource(SchoolRegistry.EVOCATION_RESOURCE).setMaxLevel(10).setCooldownSeconds((double)2.0F).build();
+        this.manaCostPerLevel = 10;
+        this.baseSpellPower = 4;
+        this.spellPowerPerLevel = 0;
+        this.castTime = 2;
+        this.baseManaCost = 40;
     }
 
     @Override
@@ -34,7 +38,11 @@ public class ShotgunCreeperSpell extends AbstractSpell {
     }
 
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.damage", new Object[]{Utils.stringTruncation((double)this.getDamage(spellLevel, caster), 2)}));
+        return List.of(Component.translatable("ui.irons_spellbooks.damage", new Object[]{Utils.stringTruncation((double)this.getDamage(spellLevel), 1)}), Component.translatable("ui.irons_spellbooks.projectile_count", new Object[]{this.getCount()}));
+    }
+
+    private int getCount() {
+        return 3;
     }
 
     @Override
@@ -47,22 +55,23 @@ public class ShotgunCreeperSpell extends AbstractSpell {
         return CastType.INSTANT;
     }
 
-    private float getDamage(int spellLevel, LivingEntity entity) {
-        return this.getSpellPower(spellLevel, entity) * 0.5F;
+    private float getDamage(int spellLevel) {
+        return 1F + spellLevel;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return SpellsGoneWrongCommonConfig.SHOTGUN_CREEPER_SPELL.get();
     }
 
     @Override
     public void onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData) {
-        float speed = (float)(6 + spellLevel) * 0.1F;
-        float damage = this.getDamage(spellLevel, entity);
+        float speed = (float)(8) * 0.1F;
+        float speed2 = (float)(8) * 0.1F;
+        float damage = this.getDamage(spellLevel);
         CreeperHeadProjectile head = new CreeperHeadProjectile(entity, level, speed, damage);
-        CreeperHeadProjectile head2 = new CreeperHeadProjectile(entity, level, speed, damage);
-        CreeperHeadProjectile head3 = new CreeperHeadProjectile(entity, level, speed, damage);
+        CreeperHeadProjectile head2 = new CreeperHeadProjectile(entity, level, speed2, damage);
+        CreeperHeadProjectile head3 = new CreeperHeadProjectile(entity, level, speed2, damage);
         Vec3 spawn = entity.getEyePosition().add(entity.getForward());
         head.moveTo(spawn.x, spawn.y - head.getBoundingBox().getYsize() / (double)2.0F, spawn.z, entity.getYRot() + 180.0F, entity.getXRot());
 
