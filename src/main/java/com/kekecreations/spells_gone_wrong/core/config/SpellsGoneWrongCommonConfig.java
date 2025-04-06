@@ -31,6 +31,7 @@ public class SpellsGoneWrongCommonConfig {
     public static final ModConfigSpec.ConfigValue<Boolean> HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS;
 
     public static final ModConfigSpec.ConfigValue<Boolean> SHOTGUN_CREEPER_SPELL;
+    public static final ModConfigSpec.ConfigValue<Boolean> NUCREEPER_STRIKE_SPELL;
 
     static {
         BUILDER.push("Spells Gone Wrong Config");
@@ -39,8 +40,12 @@ public class SpellsGoneWrongCommonConfig {
         BUILDER.push("Custom Spells Settings");
 
         SHOTGUN_CREEPER_SPELL = BUILDER
-                .comment("Enables the shotgun creeper spell")
+                .comment("Enables the Shotgun Creeper spell")
                 .define("Shotgun Creeper Spell", true);
+
+        NUCREEPER_STRIKE_SPELL = BUILDER
+                .comment("Enables the Nucreeper Strike spell")
+                .define("Nucreeper Strike Spell", true);
 
 
         BUILDER.pop();
