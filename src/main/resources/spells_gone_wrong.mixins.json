@@ -17,6 +17,7 @@
     "IceBlockProjectileMixin",
     "LightningBoltSpellMixin",
     "PoisonArrowMixin",
+    "PotionMixin",
     "SlowSpellMixin",
     "VoidTentacleMixin",
     "WallOfFireEntityMixin",

@@ -32,12 +32,13 @@ public class SpellsGoneWrongCommonConfig {
 
     public static final ModConfigSpec.ConfigValue<Boolean> SHOTGUN_CREEPER_SPELL;
     public static final ModConfigSpec.ConfigValue<Boolean> NUCREEPER_STRIKE_SPELL;
+    public static final ModConfigSpec.ConfigValue<Boolean> MANA_SHARD;
 
     static {
         BUILDER.push("Spells Gone Wrong Config");
 
-        BUILDER.comment("Enable some new spells!");
-        BUILDER.push("Custom Spells Settings");
+        BUILDER.comment("Enable some new features!");
+        BUILDER.push("Custom Features");
 
         SHOTGUN_CREEPER_SPELL = BUILDER
                 .comment("Enables the Shotgun Creeper spell")
@@ -46,6 +47,10 @@ public class SpellsGoneWrongCommonConfig {
         NUCREEPER_STRIKE_SPELL = BUILDER
                 .comment("Enables the Nucreeper Strike spell")
                 .define("Nucreeper Strike Spell", true);
+
+        MANA_SHARD = BUILDER
+                .comment("Enables the Mana shard item which replaces all mana potions. The Mana Shard is a new interesting way to get mana.")
+                .define("Mana Shard", true);
 
 
         BUILDER.pop();

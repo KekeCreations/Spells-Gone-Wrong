@@ -1,8 +1,8 @@
 package com.kekecreations.spells_gone_wrong;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
+import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongItems;
 import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongSpells;
-import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 
@@ -24,10 +24,8 @@ public class SpellsGoneWrong {
     public SpellsGoneWrong(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
 
-        //SpellsGoneWrongSpells.SPELLS.register(modEventBus);
         SpellsGoneWrongSpells.register(modEventBus);
-
-        //NeoForge.EVENT_BUS.register(this);
+        SpellsGoneWrongItems.register();
 
 
         modContainer.registerConfig(ModConfig.Type.COMMON, SpellsGoneWrongCommonConfig.SPEC);

@@ -12,4 +12,6 @@ public class SpellsGoneWrongItems {
     public Supplier<Item> registerItem(String id, Supplier<Item> supplier) {
         return JinxedRegistryHelper.registerItem(SpellsGoneWrong.MOD_ID, id, supplier);
     }
+
+    public static void register() {}
 }
