@@ -32,7 +32,13 @@ public class SpellsGoneWrongCommonConfig {
 
     public static final ModConfigSpec.ConfigValue<Boolean> SHOTGUN_CREEPER_SPELL;
     public static final ModConfigSpec.ConfigValue<Boolean> NUCREEPER_STRIKE_SPELL;
+    public static final ModConfigSpec.ConfigValue<Boolean> DISABLE_MANA_POTIONS;
     public static final ModConfigSpec.ConfigValue<Boolean> MANA_SHARD;
+
+    public static final ModConfigSpec.ConfigValue<Double> MANA_SHARD_AMPLIFIER_3_CHANCE;
+    public static final ModConfigSpec.ConfigValue<Double> MANA_SHARD_AMPLIFIER_2_CHANCE;
+    public static final ModConfigSpec.ConfigValue<Double> MANA_SHARD_AMPLIFIER_1_CHANCE;
+
 
     static {
         BUILDER.push("Spells Gone Wrong Config");
@@ -48,9 +54,30 @@ public class SpellsGoneWrongCommonConfig {
                 .comment("Enables the Nucreeper Strike spell")
                 .define("Nucreeper Strike Spell", true);
 
+        DISABLE_MANA_POTIONS = BUILDER
+                .comment("Disables the mana potions")
+                .define("Disable the mana potions", false);
+
         MANA_SHARD = BUILDER
-                .comment("Enables the Mana shard item which replaces all mana potions. The Mana Shard is a new interesting way to get mana.")
+                .comment("Enables the Mana Shard. The Mana Shard is a new interesting way to get mana.")
                 .define("Mana Shard", true);
+
+        BUILDER.push("Mana Shard Settings");
+
+
+        MANA_SHARD_AMPLIFIER_3_CHANCE = BUILDER
+                .comment("What is the chance that the Mana Shard gives the player Instant Mana with amplifier level 3.  1 = 100%  0 = 0%")
+                .defineInRange("Instant Mana Amplifier 3 Chance", 0.05, 0, 1);
+
+        MANA_SHARD_AMPLIFIER_2_CHANCE = BUILDER
+                .comment("What is the chance that the Mana Shard gives the player Instant Mana with amplifier level 2.  1 = 100%  0 = 0%")
+                .defineInRange("Instant Mana Amplifier 2 Chance", 0.20, 0, 1);
+
+        MANA_SHARD_AMPLIFIER_1_CHANCE = BUILDER
+                .comment("What is the chance that the Mana Shard gives the player Instant Mana with amplifier level 1.  1 = 100%  0 = 0%")
+                .defineInRange("Instant Mana Amplifier 1 Chance", 0.40, 0, 1);
+
+        BUILDER.pop();
 
 
         BUILDER.pop();

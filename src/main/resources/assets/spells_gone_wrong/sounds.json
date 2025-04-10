@@ -1,0 +1,11 @@
+{
+  "item.mana_shard.break": {
+    "sounds": [
+      "minecraft:random/glass1",
+      "minecraft:random/glass2",
+      "minecraft:random/glass3"
+    ],
+    "category": "block",
+    "subtitle": "subtitles.mana_shard.break"
+  }
+}

@@ -18,7 +18,7 @@ public class PotionMixin implements FeatureElement {
 
     @Override
     public boolean isEnabled(FeatureFlagSet flagSet) {
-        if (SpellsGoneWrongCommonConfig.MANA_SHARD.get()) {
+        if (SpellsGoneWrongCommonConfig.DISABLE_MANA_POTIONS.get()) {
             Potion $this = (Potion) (Object) this;
             if ($this.getEffects().contains(new MobEffectInstance(MobEffectRegistry.INSTANT_MANA))) {
                 return false;

@@ -2,6 +2,10 @@
 V1.0.3
 - The mod now only supports 1.21.1
 - The mod now supports the current latest version of Iron's Spells N Spellbooks (3.11.0)
+- Added a new Shotgun Creeper spell (configurable)
+- Added a new Nucreeper spell (configurable)
+- Added a new item called the Mana Shard which is designed to replace Mana potions or work alongside them. (Configurable)
+- Added a config option to disable Mana potions.
 
 
 V1.21-1.0.2
