@@ -98,6 +98,8 @@ dependencies {
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
 
+    implementation fg.deobf("curse.maven:jinxedlib-1203401:6630668")
+
     //dev util
     implementation fg.deobf("curse.maven:neat-238372:5728641")
 
