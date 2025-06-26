@@ -2,7 +2,7 @@ package com.kekecreations.spells_gone_wrong.core.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class SpellsGoneWrongCommonConfigs {
+public class SpellsGoneWrongCommonConfig {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec SPEC;
 
@@ -30,8 +30,48 @@ public class SpellsGoneWrongCommonConfigs {
 
     public static final ForgeConfigSpec.ConfigValue<Boolean> HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS;
 
+    public static final ForgeConfigSpec.ConfigValue<Boolean> SHOTGUN_CREEPER_SPELL;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> NUCREEPER_STRIKE_SPELL;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> MANA_SHARD;
+
+    public static final ForgeConfigSpec.ConfigValue<Double> MANA_SHARD_AMPLIFIER_3_CHANCE;
+    public static final ForgeConfigSpec.ConfigValue<Double> MANA_SHARD_AMPLIFIER_2_CHANCE;
+    public static final ForgeConfigSpec.ConfigValue<Double> MANA_SHARD_AMPLIFIER_1_CHANCE;
+
     static {
         BUILDER.push("Spells Gone Wrong Config");
+
+        BUILDER.comment("Enable some new features!");
+        BUILDER.push("Custom Features");
+
+        SHOTGUN_CREEPER_SPELL = BUILDER
+                .comment("Enables the Shotgun Creeper spell")
+                .define("Shotgun Creeper Spell", true);
+
+        NUCREEPER_STRIKE_SPELL = BUILDER
+                .comment("Enables the Nucreeper Strike spell")
+                .define("Nucreeper Strike Spell", true);
+
+        MANA_SHARD = BUILDER
+                .comment("Enables the Mana Shard. The Mana Shard is a new interesting way to get mana.")
+                .define("Mana Shard", true);
+
+        BUILDER.push("Mana Shard Settings");
+
+
+        MANA_SHARD_AMPLIFIER_3_CHANCE = BUILDER
+                .comment("What is the chance that the Mana Shard gives the player Instant Mana with amplifier level 3.  1 = 100%  0 = 0%")
+                .defineInRange("Instant Mana Amplifier 3 Chance", 0.05, 0, 1);
+
+        MANA_SHARD_AMPLIFIER_2_CHANCE = BUILDER
+                .comment("What is the chance that the Mana Shard gives the player Instant Mana with amplifier level 2.  1 = 100%  0 = 0%")
+                .defineInRange("Instant Mana Amplifier 2 Chance", 0.20, 0, 1);
+
+        MANA_SHARD_AMPLIFIER_1_CHANCE = BUILDER
+                .comment("What is the chance that the Mana Shard gives the player Instant Mana with amplifier level 1.  1 = 100%  0 = 0%")
+                .defineInRange("Instant Mana Amplifier 1 Chance", 0.40, 0, 1);
+
+        BUILDER.pop();
 
         BUILDER.comment("Enable some bonus features for spells!");
         BUILDER.push("Spell Additions Settings");

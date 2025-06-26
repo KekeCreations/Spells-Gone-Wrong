@@ -1,6 +1,6 @@
 package com.kekecreations.spells_gone_wrong.core.mixin;
 
-import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import io.redspace.ironsspellbooks.damage.DamageSources;
 import io.redspace.ironsspellbooks.entity.spells.wisp.WispEntity;
 import net.minecraft.world.entity.MobType;
@@ -18,7 +18,7 @@ public class WispEntityMixin {
 
     @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/api/spells/AbstractSpell.getDamageSource (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/Entity;)Lio/redspace/ironsspellbooks/damage/SpellDamageSource;"), remap = false)
     private void spells_gone_wrong_tick(CallbackInfo ci) {
-        if (SpellsGoneWrongCommonConfigs.HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS.get()) {
+        if (SpellsGoneWrongCommonConfig.HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS.get()) {
             WispEntity $this = (WispEntity) (Object) this;
             if ($this.getTarget() != null) {
                 if ($this.getTarget().getMobType() == MobType.UNDEAD) {

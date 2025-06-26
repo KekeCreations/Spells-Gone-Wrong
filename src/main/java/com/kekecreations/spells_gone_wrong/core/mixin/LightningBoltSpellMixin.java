@@ -1,6 +1,6 @@
 package com.kekecreations.spells_gone_wrong.core.mixin;
 
-import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import com.llamalad7.mixinextras.sugar.Local;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.CastSource;
@@ -22,7 +22,7 @@ public class LightningBoltSpellMixin {
 
     @Inject(method = "onCast", at = @At(value = "TAIL"), remap = false)
     public void spells_gone_wrong_onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData, CallbackInfo ci, @Local(name="pos") Vec3 pos, @Local(name="radius") float radius, @Local(name="damage") float damage, @Local(name="lightningBolt") LightningBolt lightningBolt) {
-        if (SpellsGoneWrongCommonConfigs.LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER.get()) {
+        if (SpellsGoneWrongCommonConfig.LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER.get()) {
             LightningBoltSpell $this = (LightningBoltSpell) (Object) this;
             double playerDistance = 0;
 

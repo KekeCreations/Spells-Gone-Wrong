@@ -1,6 +1,8 @@
 package com.kekecreations.spells_gone_wrong;
 
-import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
+import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongItems;
+import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongSounds;
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,8 +33,10 @@ public class SpellsGoneWrong
 
         modEventBus.addListener(this::commonSetup);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SpellsGoneWrongCommonConfigs.SPEC, "spells_gone_wrong-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SpellsGoneWrongCommonConfig.SPEC, "spells_gone_wrong-common.toml");
 
+        SpellsGoneWrongSounds.register();
+        SpellsGoneWrongItems.register();
 
 
         MinecraftForge.EVENT_BUS.register(this);

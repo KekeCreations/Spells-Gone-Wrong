@@ -1,6 +1,6 @@
 package com.kekecreations.spells_gone_wrong.core.mixin;
 
-import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import io.redspace.ironsspellbooks.entity.spells.black_hole.BlackHole;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,10 +19,10 @@ public class BlackHoleMixin {
     @Inject(method = "tick", at = @At(value = "HEAD"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
         BlackHole blackHole = (BlackHole) (Object) this;
-        if (!(blackHole.getOwner() instanceof BlackHole) && SpellsGoneWrongCommonConfigs.BLACK_HOLE_SPELL_CAN_HURT_OWNER.get()) {
+        if (!(blackHole.getOwner() instanceof BlackHole) && SpellsGoneWrongCommonConfig.BLACK_HOLE_SPELL_CAN_HURT_OWNER.get()) {
             blackHole.setOwner(blackHole);
         }
-        if (blackHole.tickCount > 500 && blackHole.tickCount < 610 && SpellsGoneWrongCommonConfigs.BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS.get()) {
+        if (blackHole.tickCount > 500 && blackHole.tickCount < 610 && SpellsGoneWrongCommonConfig.BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS.get()) {
             if ((blackHole.tickCount) % 8 == 0 && !blackHole.level().isClientSide) {
                 BlockPos blockPos = new BlockPos((int) blackHole.getRandomX(0.3), (int) (blackHole.getRandomY() - 10) + (int) blackHole.getRadius(), (int) blackHole.getRandomZ(0.3));
                 Block block = blackHole.level().getBlockState(blockPos).getBlock();
@@ -32,7 +32,7 @@ public class BlackHoleMixin {
                 }
             }
         }
-        if (blackHole.tickCount > 610 && SpellsGoneWrongCommonConfigs.BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS.get()) {
+        if (blackHole.tickCount > 610 && SpellsGoneWrongCommonConfig.BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS.get()) {
             blackHole.level().addParticle(ParticleTypes.EXPLOSION_EMITTER, true, blackHole.getX(), blackHole.getY() + (double)blackHole.getRadius(), blackHole.getZ(), 0, 0, 0);
         }
     }

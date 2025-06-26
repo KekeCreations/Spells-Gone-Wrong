@@ -1,6 +1,6 @@
 package com.kekecreations.spells_gone_wrong.core.mixin;
 
-import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongFeatures;
 import io.redspace.ironsspellbooks.entity.spells.ice_block.IceBlockProjectile;
 import net.minecraft.core.BlockPos;
@@ -25,11 +25,11 @@ public class IceBlockProjectileMixin {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/ice_block/IceBlockProjectile.getXRot ()F"))
     public void spell_gone_wrong_tick(CallbackInfo ci) {
         IceBlockProjectile iceBlockProjectile = (IceBlockProjectile) (Object) this;
-        if (!(iceBlockProjectile.getOwner() instanceof IceBlockProjectile) && SpellsGoneWrongCommonConfigs.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
+        if (!(iceBlockProjectile.getOwner() instanceof IceBlockProjectile) && SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
             iceBlockProjectile.setOwner(iceBlockProjectile);
         }
 
-        if (SpellsGoneWrongCommonConfigs.ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES.get()) {
+        if (SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES.get()) {
             Level pLevel = iceBlockProjectile.level();
             RandomSource pRandom = pLevel.getRandom();
             BlockPos pPos = new BlockPos(iceBlockProjectile.getBlockX(), iceBlockProjectile.getBlockY(), iceBlockProjectile.getBlockZ());

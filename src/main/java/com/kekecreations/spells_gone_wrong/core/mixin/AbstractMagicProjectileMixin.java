@@ -1,6 +1,6 @@
 package com.kekecreations.spells_gone_wrong.core.mixin;
 
-import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfigs;
+import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import io.redspace.ironsspellbooks.entity.spells.AbstractMagicProjectile;
 import io.redspace.ironsspellbooks.entity.spells.blood_needle.BloodNeedle;
 import io.redspace.ironsspellbooks.entity.spells.comet.Comet;
@@ -18,19 +18,19 @@ public class AbstractMagicProjectileMixin {
     public void spells_gone_wrong_tick(CallbackInfo ci) {
         AbstractMagicProjectile abstractMagicProjectile = (AbstractMagicProjectile) (Object) this;
         //Lightning Lance Spell
-        if (abstractMagicProjectile instanceof LightningLanceProjectile && !(abstractMagicProjectile.getOwner() instanceof LightningLanceProjectile) && SpellsGoneWrongCommonConfigs.LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER.get()) {
+        if (abstractMagicProjectile instanceof LightningLanceProjectile && !(abstractMagicProjectile.getOwner() instanceof LightningLanceProjectile) && SpellsGoneWrongCommonConfig.LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER.get()) {
             abstractMagicProjectile.setOwner(abstractMagicProjectile);
         }
         //Blood Needles Spell
-        if (abstractMagicProjectile instanceof BloodNeedle && !(abstractMagicProjectile.getOwner() instanceof BloodNeedle) && SpellsGoneWrongCommonConfigs.BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER.get()) {
+        if (abstractMagicProjectile instanceof BloodNeedle && !(abstractMagicProjectile.getOwner() instanceof BloodNeedle) && SpellsGoneWrongCommonConfig.BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER.get()) {
             abstractMagicProjectile.setOwner(abstractMagicProjectile);
         }
         //Magma Bomb Spell
-        if (abstractMagicProjectile instanceof FireBomb && !(abstractMagicProjectile.getOwner() instanceof FireBomb) && SpellsGoneWrongCommonConfigs.MAGMA_BOMB_SPELL_CAN_HURT_OWNER.get()) {
+        if (abstractMagicProjectile instanceof FireBomb && !(abstractMagicProjectile.getOwner() instanceof FireBomb) && SpellsGoneWrongCommonConfig.MAGMA_BOMB_SPELL_CAN_HURT_OWNER.get()) {
             abstractMagicProjectile.setOwner(abstractMagicProjectile);
         }
         //StarFall Spell
-        if (abstractMagicProjectile instanceof Comet && !(abstractMagicProjectile.getOwner() instanceof Comet) && SpellsGoneWrongCommonConfigs.STARFALL_SPELL_CAN_HURT_OWNER.get()) {
+        if (abstractMagicProjectile instanceof Comet && !(abstractMagicProjectile.getOwner() instanceof Comet) && SpellsGoneWrongCommonConfig.STARFALL_SPELL_CAN_HURT_OWNER.get()) {
             abstractMagicProjectile.setOwner(abstractMagicProjectile);
         }
     }

@@ -15,5 +15,9 @@
   "death.attack.irons_spellbooks.fang_ward": "%1$s got shredded by fangs",
   "death.attack.irons_spellbooks.wall_of_fire": "%1$s was consumed by flames",
   "death.attack.irons_spellbooks.ice_block": "%1$s was crushed by a giant block of ice",
-  "death.attack.irons_spellbooks.sculk_tentacles": "%2$s got caught in sculk"
+  "death.attack.irons_spellbooks.sculk_tentacles": "%2$s got caught in sculk",
+  "spell.spells_gone_wrong.shotgun_creeper": "Shotgun Creeper",
+  "spell.spells_gone_wrong.nucreeper_strike": "Nucreeper Strike",
+  "item.spells_gone_wrong.mana_shard": "Mana Shard",
+  "subtitles.mana_shard.break": "Mana unleashes"
 }
