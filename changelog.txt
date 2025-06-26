@@ -1,4 +1,6 @@
-
+V1.0.3
+- Updated to support latest Iron's Spells N Spellbooks version
+- Fixed Wisp not doing extra damage to undead mobs when the toggle was turned on
 
 
 

@@ -16,13 +16,13 @@ public class WispEntityMixin {
     @Shadow(remap = false)
     private float damageAmount;
 
-    @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/api/spells/AbstractSpell.getDamageSource (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/Entity;)Lio/redspace/ironsspellbooks/damage/SpellDamageSource;"))
+    @Inject(method = "tick()V", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/api/spells/AbstractSpell.getDamageSource (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/Entity;)Lio/redspace/ironsspellbooks/damage/SpellDamageSource;"), remap = false)
     private void spells_gone_wrong_tick(CallbackInfo ci) {
         if (SpellsGoneWrongCommonConfigs.HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS.get()) {
             WispEntity $this = (WispEntity) (Object) this;
             if ($this.getTarget() != null) {
                 if ($this.getTarget().getMobType() == MobType.UNDEAD) {
-                    DamageSources.applyDamage($this.getTarget(), damageAmount, $this.getTarget().damageSources().onFire());
+                    DamageSources.applyDamage($this.getTarget(), damageAmount * 1.8F, $this.getTarget().damageSources().onFire());
                 }
             }
         }
