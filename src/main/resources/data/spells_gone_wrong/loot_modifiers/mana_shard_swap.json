@@ -1,0 +1,10 @@
+{
+  "type": "spells_gone_wrong:mana_shard",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "irons_spellbooks:magic_items/random_potion"
+    }
+  ],
+  "item": "spells_gone_wrong:mana_shard"
+}

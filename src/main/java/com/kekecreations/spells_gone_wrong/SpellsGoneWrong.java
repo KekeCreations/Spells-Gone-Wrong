@@ -2,7 +2,9 @@ package com.kekecreations.spells_gone_wrong;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongItems;
+import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongLootModifiers;
 import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongSounds;
+import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongSpells;
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,6 +39,8 @@ public class SpellsGoneWrong
 
         SpellsGoneWrongSounds.register();
         SpellsGoneWrongItems.register();
+        SpellsGoneWrongLootModifiers.register(modEventBus);
+        SpellsGoneWrongSpells.register(modEventBus);
 
 
         MinecraftForge.EVENT_BUS.register(this);
