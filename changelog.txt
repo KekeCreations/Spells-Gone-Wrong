@@ -1,7 +1,9 @@
 V1.0.3
 - Updated to support latest Iron's Spells N Spellbooks version (3.4.0.9)
 - Fixed Wisp not doing extra damage to undead mobs when the toggle was turned on
-- Backported Mana Shard
+- Backported Mana Shard (config)
+- Backported Nucreeper Strike Spell (config)
+- Backported Shotgun Creeper Spell (config)
 
 
 
