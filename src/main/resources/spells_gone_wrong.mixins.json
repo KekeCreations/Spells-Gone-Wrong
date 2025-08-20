@@ -16,6 +16,7 @@
     "GuidingBoltProjectileMixin",
     "IceBlockProjectileMixin",
     "LightningBoltSpellMixin",
+    "LightningLanceProjectileMixin",
     "PoisonArrowMixin",
     "SlowSpellMixin",
     "VoidTentacleMixin",

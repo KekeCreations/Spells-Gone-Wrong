@@ -2,6 +2,7 @@ package com.kekecreations.spells_gone_wrong.core.mixin;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import io.redspace.ironsspellbooks.entity.spells.poison_arrow.PoisonArrow;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PoisonArrow.class)
 public class PoisonArrowMixin {
 
+
     @Inject(method = "tick", at = @At(value = "TAIL"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
         PoisonArrow poisonArrow = (PoisonArrow) (Object) this;
@@ -18,4 +20,6 @@ public class PoisonArrowMixin {
            // poisonArrow.setOwner(poisonArrow);
         }
     }
+
+
 }

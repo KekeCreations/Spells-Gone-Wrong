@@ -32,7 +32,7 @@ public class AoeEntityMixin {
             return false;
         } else {
             Entity entity = aoeEntity.getOwner();
-            return entity == null || !entity.isPassengerOfSameVehicle(pTarget);
+            return entity == null || entity == pTarget || !entity.isPassengerOfSameVehicle(pTarget);
         }
     }
 
