@@ -1,3 +1,10 @@
+V1.0.5
+- Fixed Bosses killing themselves with their own spells (Spells are now owned by the boss, despite config values)
+- The config now states that allowing the owner of the Blood Needles and Acupuncture spells will disable any healing functionality for those spells
+- Blood Needles Spell And Acupuncture Spell Can Hurt Owner config feature is now turned off by default
+
+
+
 V1.0.3
 - Updated to support latest Iron's Spells N Spellbooks version (3.4.0.9)
 - Fixed Wisp not doing extra damage to undead mobs when the toggle was turned on

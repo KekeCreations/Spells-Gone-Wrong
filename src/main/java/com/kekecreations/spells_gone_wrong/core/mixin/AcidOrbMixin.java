@@ -2,6 +2,7 @@ package com.kekecreations.spells_gone_wrong.core.mixin;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import io.redspace.ironsspellbooks.entity.spells.acid_orb.AcidOrb;
+import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -13,7 +14,7 @@ public class AcidOrbMixin {
     @Inject(method = "onHit", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/acid_orb/AcidOrb.getBoundingBox ()Lnet/minecraft/world/phys/AABB;"))
     public void spells_gone_wrong_onHit(CallbackInfo ci) {
         AcidOrb acidOrb = (AcidOrb) (Object) this;
-        if (!(acidOrb.getOwner() instanceof AcidOrb) && SpellsGoneWrongCommonConfig.ACID_SPIT_SPELL_CAN_HURT_OWNER.get()) {
+        if (acidOrb.getOwner() instanceof Player && SpellsGoneWrongCommonConfig.ACID_SPIT_SPELL_CAN_HURT_OWNER.get()) {
             acidOrb.setOwner(acidOrb);
         }
     }

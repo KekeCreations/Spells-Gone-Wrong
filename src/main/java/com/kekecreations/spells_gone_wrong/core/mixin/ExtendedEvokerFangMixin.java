@@ -2,6 +2,7 @@ package com.kekecreations.spells_gone_wrong.core.mixin;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import io.redspace.ironsspellbooks.entity.spells.ExtendedEvokerFang;
+import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -13,7 +14,7 @@ public class ExtendedEvokerFangMixin {
     @Inject(method = "tick", at = @At(value = "HEAD"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
         ExtendedEvokerFang extendedEvokerFang = (ExtendedEvokerFang) (Object) this;
-        if ((extendedEvokerFang.getOwner() != null) && SpellsGoneWrongCommonConfig.FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER.get()) {
+        if ((extendedEvokerFang.getOwner() != null) && extendedEvokerFang.getOwner() instanceof Player && SpellsGoneWrongCommonConfig.FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER.get()) {
             extendedEvokerFang.setOwner(null);
         }
     }

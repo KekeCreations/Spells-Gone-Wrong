@@ -154,8 +154,8 @@ public class SpellsGoneWrongCommonConfig {
                 .define("Lightning Lance Spell Can Hurt Owner", true);
 
         BLOOD_NEEDLES_SPELL_AND_ACUPUNCTURE_SPELL_CAN_HURT_OWNER = BUILDER
-                .comment("Should the Blood Needles Spell and Acupuncture Spell hurt the player who casted it?")
-                .define("Blood Needles Spell And Acupuncture Spell Can Hurt Owner", true);
+                .comment("Should the Blood Needles Spell and Acupuncture Spell hurt the player who casted it?  (This will disable healing the player on hit)")
+                .define("Blood Needles Spell And Acupuncture Spell Can Hurt Owner", false);
 
         FANG_STRIKE_SPELL_AND_FANG_WARD_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Fang Strike Spell and Fang Ward Spell hurt the player who casted it?")

@@ -19,7 +19,7 @@ public abstract class FireflySwarmProjectileMixin {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "net/minecraft/world/entity/PathfinderMob.tick ()V"))
     public void spells_gone_wrong_tick(CallbackInfo ci) {
         FireflySwarmProjectile fireflySwarmProjectile = (FireflySwarmProjectile) (Object) this;
-        if (!(fireflySwarmProjectile.getOwner() instanceof FireflySwarmProjectile) && SpellsGoneWrongCommonConfig.FIREFLY_SWARM_SPELL_CAN_HURT_OWNER.get()) {
+        if (fireflySwarmProjectile.getOwner() instanceof Player && SpellsGoneWrongCommonConfig.FIREFLY_SWARM_SPELL_CAN_HURT_OWNER.get()) {
             fireflySwarmProjectile.setOwner(fireflySwarmProjectile);
         }
     }

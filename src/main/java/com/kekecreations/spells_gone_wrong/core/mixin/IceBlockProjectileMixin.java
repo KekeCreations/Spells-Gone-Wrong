@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.chunk.ChunkGenerator;
@@ -25,7 +26,7 @@ public class IceBlockProjectileMixin {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/ice_block/IceBlockProjectile.getXRot ()F"))
     public void spell_gone_wrong_tick(CallbackInfo ci) {
         IceBlockProjectile iceBlockProjectile = (IceBlockProjectile) (Object) this;
-        if (!(iceBlockProjectile.getOwner() instanceof IceBlockProjectile) && SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
+        if (iceBlockProjectile.getOwner() instanceof Player && SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
             iceBlockProjectile.setOwner(iceBlockProjectile);
         }
 
