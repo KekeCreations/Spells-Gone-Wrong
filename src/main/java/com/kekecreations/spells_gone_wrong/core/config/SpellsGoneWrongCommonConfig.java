@@ -6,6 +6,15 @@ public class SpellsGoneWrongCommonConfig {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec SPEC;
 
+    public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_SCULK_TENTACLES;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_SONIC_BOOM;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_ELDRITCH_BLAST;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_ABYSSAL_SHROUD;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_PLANAR_SIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_TELEKINESIS;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> DISABLE_BLACKHOLE;
+
+
     public static final ForgeConfigSpec.ConfigValue<Boolean> BLACK_HOLE_SPELL_CAN_HURT_OWNER;
 
     public static final ForgeConfigSpec.ConfigValue<Boolean> BLACK_HOLE_SPELL_CAN_CAUSE_EXPLOSIONS;
@@ -73,6 +82,39 @@ public class SpellsGoneWrongCommonConfig {
 
         BUILDER.pop();
 
+        BUILDER.comment("Disable those pesky OP spells!  (When all Eldritch spells are disabled, it will also disable the Manuscript item)");
+        BUILDER.push("Disable Spells");
+
+        DISABLE_SCULK_TENTACLES = BUILDER
+                .comment("Disables the Sculk Tentacles spell!  (Eldritch)")
+                .define("Disable Sculk Tentacles", false);
+
+        DISABLE_SONIC_BOOM = BUILDER
+                .comment("Disables the Sonic Boom spell!  (Eldritch)")
+                .define("Disable Sonic Boom", false);
+
+        DISABLE_ELDRITCH_BLAST = BUILDER
+                .comment("Disables the Eldritch Blast spell!  (Eldritch)")
+                .define("Disable Eldritch Blast", false);
+
+        DISABLE_PLANAR_SIGHT = BUILDER
+                .comment("Disables the Planar Sight spell!  (Eldritch)")
+                .define("Disable Planar Sight", false);
+
+        DISABLE_ABYSSAL_SHROUD= BUILDER
+                .comment("Disables the Abyssal Shroud spell!  (Eldritch)")
+                .define("Disable Abyssal Shroud", false);
+
+        DISABLE_TELEKINESIS = BUILDER
+                .comment("Disables the Telekinesis spell!  (Eldritch)")
+                .define("Disable Telekinesis", false);
+
+        DISABLE_BLACKHOLE = BUILDER
+                .comment("Disables the Blackhole Spell!")
+                .define("Disable Blackhole", false);
+
+        BUILDER.pop();
+
         BUILDER.comment("Enable some bonus features for spells!");
         BUILDER.push("Spell Additions Settings");
 
@@ -118,8 +160,8 @@ public class SpellsGoneWrongCommonConfig {
                 .define("Poison Arrow Spell Can Hurt Owner", true);
 
         FIREFLY_SWARM_SPELL_CAN_HURT_OWNER = BUILDER
-                .comment("Should the Fireflies spawned by the Firefly Swarm Spell hurt the player who casted it?")
-                .define("Firefly Swarm Spell Can Hurt Owner", true);
+                .comment("Should the Fireflies spawned by the Firefly Swarm Spell hurt the player who casted it? (Removes owner from the player)")
+                .define("Firefly Swarm Spell Can Hurt Owner", false);
 
         EARTHQUAKE_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Earthquake Spell hurt the player who casted it?")
@@ -138,8 +180,8 @@ public class SpellsGoneWrongCommonConfig {
                 .define("Sculk Tentacles Spell Can Hurt Owner", true);
 
         CHAIN_LIGHTNING_SPELL_CAN_HURT_OWNER = BUILDER
-                .comment("Should the Chain Lightning Spell hurt the player who casted it?")
-                .define("Chain Lightning Spell Can Hurt Owner", true);
+                .comment("Should the Chain Lightning Spell hurt the player who casted it? (Removes owner from the player)")
+                .define("Chain Lightning Spell Can Hurt Owner", false);
 
         SLOW_SPELL_CAN_HURT_OWNER = BUILDER
                 .comment("Should the Slow Spell slow down the player who casted it?")

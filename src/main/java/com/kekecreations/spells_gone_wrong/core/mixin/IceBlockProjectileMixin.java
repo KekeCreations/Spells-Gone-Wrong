@@ -2,6 +2,8 @@ package com.kekecreations.spells_gone_wrong.core.mixin;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
 import com.kekecreations.spells_gone_wrong.core.registry.SpellsGoneWrongFeatures;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
+import io.redspace.ironsspellbooks.damage.SpellDamageSource;
 import io.redspace.ironsspellbooks.entity.spells.ice_block.IceBlockProjectile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -24,11 +26,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class IceBlockProjectileMixin {
 
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/ice_block/IceBlockProjectile.getXRot ()F"))
-    public void spell_gone_wrong_tick(CallbackInfo ci) {
+    public void spells_gone_wrong$tick(CallbackInfo ci) {
         IceBlockProjectile iceBlockProjectile = (IceBlockProjectile) (Object) this;
-        if (iceBlockProjectile.getOwner() instanceof Player && SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
-            iceBlockProjectile.setOwner(iceBlockProjectile);
-        }
 
         if (SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_CAUSE_ICE_PATCHES.get()) {
             Level pLevel = iceBlockProjectile.level();
@@ -45,6 +44,26 @@ public class IceBlockProjectileMixin {
                     configuredfeature.place((WorldGenLevel) pLevel, pGenerator, pRandom, pPos);
                 }
             }
+        }
+    }
+
+
+    @Inject(method = "doImpactDamage", at = @At(value = "RETURN"), remap = false)
+    public void spell_gone_wrong$doImpactDamage(CallbackInfo ci) {
+        IceBlockProjectile iceBlockProjectile = (IceBlockProjectile) (Object) this;
+        if (SpellsGoneWrongCommonConfig.ICE_BLOCK_SPELL_CAN_HURT_OWNER.get()) {
+            float explosionRadius = 3.5F;
+            iceBlockProjectile.level().getEntities(iceBlockProjectile, iceBlockProjectile.getBoundingBox().inflate((double)explosionRadius)).forEach((entity) -> {
+                if (entity == iceBlockProjectile.getOwner() && iceBlockProjectile.getOwner() instanceof Player player) {
+                    double distance = entity.distanceToSqr(iceBlockProjectile.position());
+                    if (distance < (double) (explosionRadius * explosionRadius)) {
+                        double p = (double) 1.0F - Math.pow(Math.sqrt(distance) / (double) explosionRadius, (double) 3.0F);
+                        float damage = (float) ((double) iceBlockProjectile.getDamage() * p);
+                        SpellDamageSource spellDamageSource = SpellRegistry.ICE_BLOCK_SPELL.get().getDamageSource(iceBlockProjectile, iceBlockProjectile.getOwner());
+                        player.hurt(spellDamageSource, damage);
+                    }
+                }
+            });
         }
     }
 }

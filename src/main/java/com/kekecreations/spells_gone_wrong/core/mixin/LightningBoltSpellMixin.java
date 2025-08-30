@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class LightningBoltSpellMixin {
 
     @Inject(method = "onCast", at = @At(value = "TAIL"), remap = false)
-    public void spells_gone_wrong_onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData, CallbackInfo ci) {
+    public void spells_gone_wrong$onCast(Level level, int spellLevel, LivingEntity entity, CastSource castSource, MagicData playerMagicData, CallbackInfo ci) {
         if (SpellsGoneWrongCommonConfig.LIGHTNING_BOLT_SPELL_CAN_HURT_OWNER.get()) {
             LightningBoltSpell $this = (LightningBoltSpell) (Object) this;
             //pain (Locals broke for some reason)

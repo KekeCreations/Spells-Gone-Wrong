@@ -1,6 +1,7 @@
 package com.kekecreations.spells_gone_wrong.core.mixin;
 
 import com.kekecreations.spells_gone_wrong.core.config.SpellsGoneWrongCommonConfig;
+import io.redspace.ironsspellbooks.api.registry.SpellRegistry;
 import io.redspace.ironsspellbooks.entity.spells.firefly_swarm.FireflySwarmProjectile;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -11,13 +12,13 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = FireflySwarmProjectile.class)
 public abstract class FireflySwarmProjectileMixin {
 
-
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "net/minecraft/world/entity/PathfinderMob.tick ()V"))
-    public void spells_gone_wrong_tick(CallbackInfo ci) {
+    public void spells_gone_wrong$tick(CallbackInfo ci) {
         FireflySwarmProjectile fireflySwarmProjectile = (FireflySwarmProjectile) (Object) this;
         if (fireflySwarmProjectile.getOwner() instanceof Player && SpellsGoneWrongCommonConfig.FIREFLY_SWARM_SPELL_CAN_HURT_OWNER.get()) {
             fireflySwarmProjectile.setOwner(fireflySwarmProjectile);
@@ -26,7 +27,7 @@ public abstract class FireflySwarmProjectileMixin {
 
 
     @Inject(method = "customServerAiStep", at = @At(value = "INVOKE", target = "net/minecraft/world/level/Level.getEntities (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/phys/AABB;Ljava/util/function/Predicate;)Ljava/util/List;"))
-    public void spells_gone_wrong_customServerAiStep(CallbackInfo ci) {
+    public void spells_gone_wrong$customServerAiStep(CallbackInfo ci) {
         FireflySwarmProjectile fireflySwarmProjectile = (FireflySwarmProjectile) (Object) this;
         if (SpellsGoneWrongCommonConfig.FIREFLY_SWARM_CAN_GIVE_GLOWING_EFFECT.get()) {
             double inflate = 2.0F - fireflySwarmProjectile.getBbWidth() * 0.5F;

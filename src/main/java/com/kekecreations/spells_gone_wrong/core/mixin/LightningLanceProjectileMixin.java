@@ -19,9 +19,9 @@ public class LightningLanceProjectileMixin {
 
 
     @Inject(method = "onHitEntity", at = @At(value = "HEAD"))
-    protected void onHitEntity(EntityHitResult entityHitResult, CallbackInfo ci) {
+    protected void spells_gone_wrong$onHitEntity(EntityHitResult entityHitResult, CallbackInfo ci) {
         AbstractMagicProjectile abstractMagicProjectile = (AbstractMagicProjectile) (Object) this;
-        if (entityHitResult.getEntity() instanceof Player player && SpellsGoneWrongCommonConfig.LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER.get()) {
+        if (entityHitResult.getEntity() instanceof Player player && entityHitResult.getEntity() == abstractMagicProjectile.getOwner() && SpellsGoneWrongCommonConfig.LIGHTNING_LANCE_SPELL_CAN_HURT_OWNER.get()) {
             float baseAmount = abstractMagicProjectile.getDamage();
             SpellDamageSource spellDamageSource = SpellRegistry.LIGHTNING_LANCE_SPELL.get().getDamageSource(abstractMagicProjectile, abstractMagicProjectile.getOwner());
             SpellDamageEvent e = new SpellDamageEvent(player, baseAmount, spellDamageSource);
