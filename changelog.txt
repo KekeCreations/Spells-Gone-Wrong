@@ -1,3 +1,13 @@
+V2.0.0
+- Rewrote the mod to fix core issues (the mod is now less intrusive and keeps core gameplay like player-killed loot)
+- Fixed Bosses killing themselves with their own spells (Spells are now owned by the boss, despite config values)
+- Fixed mobs not dropping player killed loot when they are killed with magic
+- The config now states that allowing the owner of the Blood Needles and Acupuncture spells will disable any healing functionality for those spells
+- The config is now more detailed to avoid confusion
+- Blood Needles Spell And Acupuncture Spell Can Hurt Owner config feature is now turned off by default
+- Chain Lightning spell Can Hurt Owner config feature is now turned off by default
+- Added config values to disable those pesky OP spells!
+
 
 V1.0.3
 - The mod now only supports 1.21.1

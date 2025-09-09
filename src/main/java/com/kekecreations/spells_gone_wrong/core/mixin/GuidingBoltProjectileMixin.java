@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = GuidingBoltProjectile.class)
 public class GuidingBoltProjectileMixin {
     @Inject(method = "onHitEntity(Lnet/minecraft/world/phys/EntityHitResult;)V", at = @At(value = "HEAD"))
-    private void spells_gone_wrong_onHitEntity(EntityHitResult entityHitResult, CallbackInfo ci) {
+    private void spells_Gone_Wrong$onHitEntity(EntityHitResult entityHitResult, CallbackInfo ci) {
         if (SpellsGoneWrongCommonConfig.HOLY_SPELLS_DO_EXTRA_DAMAGE_TO_UNDEAD_MOBS.get()) {
             GuidingBoltProjectile $this = (GuidingBoltProjectile) (Object) this;
             if (entityHitResult.getEntity() instanceof LivingEntity livingEntity) {
