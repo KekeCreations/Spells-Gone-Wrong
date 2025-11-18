@@ -1,3 +1,11 @@
+V2.0.1
+- Fixed crash with Iron's Spells N Spellbooks 3.14 alpha jar
+(Only patreons have access to this version at the moment, this release is for when this version of Spells N Spellbooks is released to the public)
+THIS VERSION STILL WORKS ON OLDER VERSIONS OF IRON'S SPELLS N SPELLBOOKS
+
+
+
+
 V2.0.0
 - Rewrote the mod to fix core issues (the mod is now less intrusive and keeps core gameplay like player-killed loot)
 - Fixed Bosses killing themselves with their own spells (Spells are now owned by the boss, despite config values)

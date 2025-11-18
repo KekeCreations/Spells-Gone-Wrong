@@ -25,7 +25,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(IceBlockProjectile.class)
 public class IceBlockProjectileMixin {
 
-    @Inject(method = "tick", at = @At(value = "INVOKE", target = "io/redspace/ironsspellbooks/entity/spells/ice_block/IceBlockProjectile.getXRot ()F"))
+
+    @Inject(method = "tick", at = @At(value = "HEAD"))
     public void spells_gone_wrong$tick(CallbackInfo ci) {
         IceBlockProjectile iceBlockProjectile = (IceBlockProjectile) (Object) this;
 
@@ -46,6 +47,7 @@ public class IceBlockProjectileMixin {
             }
         }
     }
+
 
 
     @Inject(method = "doImpactDamage", at = @At(value = "RETURN"), remap = false)
