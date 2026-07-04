@@ -159,7 +159,8 @@ dependencies {
 
     //Need these mods
     implementation "curse.maven:jinxedlib-1203401:6332450"
-    implementation "curse.maven:irons-spells-n-spellbooks-855414:6359979"
+    implementation "curse.maven:irons-spells-n-spellbooks-855414:8364935"
+    implementation "curse.maven:irons-lib-1492763:8364894"
     implementation ("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
     //compileOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}:api"
     //localRuntime "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}"

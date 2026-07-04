@@ -1,3 +1,9 @@
+V2.0.1
+- Fixed a crash occurring with Iron's Spells N Spellbooks latest version!
+- Casted to Cast in descriptions
+
+
+
 V2.0.0
 - Rewrote the mod to fix core issues (the mod is now less intrusive and keeps core gameplay like player-killed loot)
 - Fixed Bosses killing themselves with their own spells (Spells are now owned by the boss, despite config values)
