@@ -3,13 +3,13 @@ loaderVersion="[47,)" #mandatory This is typically bumped every Minecraft versio
 license="All rights reserved"
 [[mods]] #mandatory
 modId="spells_gone_wrong" #mandatory
-version="1.20.1-2.0.1" #mandatory
+version="1.20.1-2.0.2" #mandatory
 displayName="Spells Gone Wrong" #mandatory
 logoFile="mod_icon.png" #optional
 credits="A Special thanks to dreadnews on Discord for the idea to allow owners of spells to take damage. This mod was originally going to be a commission for dreadnews on Discord but I wanted to make the idea configurable and expand on some of the spells so I decided to make it a mod and upload it!" #optional
 authors="KekeCreations" #optional
 description='''
-This mod allows you to take damage from your own casted spells and configure new spell features. Only works on spells added by Iron's Spells N Spellbooks [Configurable]
+This mod allows you to take damage from your own cast spells and configure new spell features. Only works on spells added by Iron's Spells N Spellbooks [Configurable]
 '''
 updateJSONURL="https://raw.githubusercontent.com/KekeCreations/Spells-Gone-Wrong/refs/heads/1.20.1x/forge_updates.json"
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.

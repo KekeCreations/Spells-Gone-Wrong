@@ -1,3 +1,8 @@
+V2.0.2
+- Fixed a crash occurring with Iron's Spells N Spellbooks latest version!
+- Casted to Cast in descriptions
+
+
 V2.0.1
 - Fixed crash with Iron's Spells N Spellbooks 3.14 alpha jar
 (Only patreons have access to this version at the moment, this release is for when this version of Spells N Spellbooks is released to the public)
